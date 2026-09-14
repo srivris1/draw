@@ -106,27 +106,33 @@ export default function DrawPage() {
   };
 
   return (
-    <div className="h-screen w-screen bg-[#09090b] overflow-hidden relative">
-      <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-[#18181b]/90 backdrop-blur-md border border-white/10 rounded-2xl p-2 flex items-center gap-2 shadow-2xl z-10">
+    <div className="h-screen w-screen bg-[#09090b] overflow-hidden relative font-sans">
+      <div className="crt-overlay"></div>
+      <div className="absolute top-6 left-1/2 -translate-x-1/2 bg-[#121110]/95 backdrop-blur-md border border-[#ffaa00]/30 rounded-none p-3 flex items-center gap-4 shadow-[0_0_16px_rgba(255,170,0,0.2)] z-10">
+        <div className="text-[#ffaa00] text-xs font-mono font-bold tracking-widest px-2 border-r border-[#ffaa00]/30">
+          SYS.DRAW
+        </div>
         <button 
           onClick={() => setTool('pen')}
-          className={`p-3 rounded-xl transition-colors ${tool === 'pen' ? 'bg-blue-500/20 text-blue-400' : 'hover:bg-white/10 text-zinc-400'}`}
+          className={`p-2 transition-colors border ${tool === 'pen' ? 'bg-[#ffaa00]/20 text-[#ffaa00] border-[#ffaa00]/50' : 'hover:bg-[#ffaa00]/10 text-[#a89a85] border-transparent'}`}
         >
           <Pen className="w-5 h-5" />
         </button>
         
         <button 
           onClick={() => setTool('eraser')}
-          className={`p-3 rounded-xl transition-colors ${tool === 'eraser' ? 'bg-zinc-700 text-white' : 'hover:bg-white/10 text-zinc-400'}`}
+          className={`p-2 transition-colors border ${tool === 'eraser' ? 'bg-[#ffaa00] text-black border-[#ffaa00]' : 'hover:bg-[#ffaa00]/10 text-[#a89a85] border-transparent'}`}
         >
           <Eraser className="w-5 h-5" />
         </button>
+
+        <div className="h-6 w-px bg-[#ffaa00]/20 mx-1" />
 
         <input 
           type="color" 
           value={color}
           onChange={(e) => { setColor(e.target.value); setTool('pen'); }}
-          className="w-10 h-10 rounded-xl cursor-pointer bg-transparent border-0 p-1"
+          className="w-8 h-8 cursor-pointer bg-transparent border-0 p-0"
         />
 
         <input 
@@ -135,16 +141,16 @@ export default function DrawPage() {
           max="50" 
           value={brushSize}
           onChange={(e) => setBrushSize(parseInt(e.target.value))}
-          className="w-24 mx-2 accent-blue-500"
+          className="w-24 mx-2 accent-[#ffaa00]"
         />
 
-        <div className="h-8 w-px bg-white/10 mx-2" />
+        <div className="h-6 w-px bg-[#ffaa00]/20 mx-1" />
         
-        <button onClick={clearCanvas} className="p-3 hover:bg-red-500/20 hover:text-red-400 rounded-xl text-zinc-400 transition-colors">
+        <button onClick={clearCanvas} className="p-2 hover:bg-red-500/20 hover:text-red-400 border border-transparent text-[#a89a85] transition-colors">
           <Trash2 className="w-5 h-5" />
         </button>
         
-        <button onClick={downloadCanvas} className="p-3 hover:bg-white/10 rounded-xl text-zinc-400 hover:text-white transition-colors">
+        <button onClick={downloadCanvas} className="p-2 hover:bg-[#ffaa00]/20 border border-transparent text-[#a89a85] hover:text-[#ffaa00] transition-colors">
           <Download className="w-5 h-5" />
         </button>
       </div>
