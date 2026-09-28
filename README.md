@@ -1,8 +1,8 @@
-# Excalidraw Clone - Challenge 02 🎨
+# Excalidraw Clone - Challenge 02 
 
 Welcome to my custom-built HTML5 Canvas drawing application! This is my submission for **Challenge 02** of the Codenex recruitment process. I wanted to build this completely from scratch without relying on heavy third-party canvas libraries to demonstrate my grasp of core browser APIs.
 
-## 🚀 The Highlighting Feature (Out of the Box)
+## The Highlighting Feature (Out of the Box)
 The absolute best "out of the box" feature I built for this project is the **Seamless Canvas Resizing with State Retention**. 
 
 Usually, when you resize a browser window containing an HTML5 `<canvas>`, the browser completely wipes its memory and you lose your entire drawing. I engineered a custom React `useEffect` listener that acts as a hidden, in-memory ghost canvas. Every time you resize the window, it instantly snaps a screenshot of your drawing, resizes the canvas to perfectly fit your new window dimensions, and then redraws your art back onto the screen instantly. You never lose a single pixel of your work!
